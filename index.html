@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <title>Frontend Mentor | Results summary component</title>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;700&display=swap" rel="stylesheet">  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-family: 'Hanken Grotesk', sans-serif;
+    }
+    .card {
+      display: flex;
+      flex-direction: row;
+      width: 500px; 
+      height: 350px;
+      background: white;
+      border-radius: 15px;
+      z-index: 1;
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    }
+    .result-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 250px;
+      height: 350px;
+      background: linear-gradient( hsl(252, 100%, 67%), hsl(241, 81%, 54%)); 
+      z-index: 3;
+      border-radius: 15px;
+    }
+
+    .result-header {
+      color: hsla(0, 4%, 74%, 1);
+    }
+
+    .circle-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 125px;
+      height: 125px;
+      background: linear-gradient(hsla(256, 72%, 46%, 1), hsla(241, 72%, 46%, 0));
+      border-radius: 50%;
+    }
+
+    .score {
+      color: white;
+      font-weight: 500;
+      font-size: 50px;
+    }
+
+    .total-score {
+      color: hsla(0, 4%, 74%, 1);
+    }
+
+    .comment-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .comment-header {
+      color: white;
+      font-weight: bold;
+      font-size: 1.5em;
+      padding-top: 25px;
+    }
+
+    .comment {
+      display: flex;
+      justify-content: center;
+      justify-self: center;
+      padding-right:25px;
+      padding-left:25px;
+      text-align: center;
+      color: hsla(0, 4%, 74%, 1);
+      font-size: 14px;
+      padding-top: 20px;
+    }
+
+    .summary-container {
+      display: flex;
+      flex-direction: column;
+      padding-top: 10px;
+      padding-left: 25px;
+      padding-right: 25px;
+      width: 250px;
+      height: 340px;
+      background-color: white;
+      z-index: 3;
+      border-radius: 10px;
+      gap: 10px;
+    }
+
+    .summary-header {
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+
+    .reaction-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      width: 200px;
+      padding-left: 12.5px;
+      padding-right: 12.5px;
+      height: 40px;
+      background-color: hsla(0, 100%, 48%, 0.2);
+      gap: 10px;
+      border-radius: 10px;
+    }
+
+    .reaction-header {
+      color: red;
+    }
+
+
+    .memory-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      width: 200px;
+      padding-left: 12.5px;
+      padding-right: 12.5px;
+      height: 40px;
+      background-color: hsla(58, 82%, 49%, 0.2);
+      gap: 10px;
+      border-radius: 10px;
+    }
+
+    .memory-header {
+      color: rgb(160, 147, 43);
+    }
+
+
+    .verbal-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      width: 200px;
+      padding-left: 12.5px;
+      padding-right: 12.5px;
+      height: 40px;
+      background-color: hsla(121, 92%, 45%, 0.2);
+      gap: 10px;
+      border-radius: 10px;
+    }
+
+    .verbal-header {
+      color: green;
+    }
+
+
+    .visual-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      width: 200px;
+      padding-left: 12.5px;
+      padding-right: 12.5px;
+      height: 40px;
+      background-color: hsla(223, 100%, 48%, 0.2);
+      gap: 10px;
+      border-radius: 10px;
+    }
+
+    .visual-header {
+      color: blue;
+    }
+
+    .reaction-score {
+      display: flex;
+      justify-content: right;
+      flex-grow: 2;
+    }
+
+    .user-score {
+      font-weight: 900;
+    }
+
+    .continue-button {
+      background-color: hsl(224, 30%, 27%);
+      color: white;
+      border: none;
+      padding: 15px;
+      border-radius: 30px;
+      cursor: pointer;
+      margin-top: 30px;
+    }
+
+    .continue-button:hover {
+      background: linear-gradient(hsl(252, 100%, 67%), hsl(241, 81%, 54%));
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="result-container">
+      <p class="result-header">Your Result</p>
+      <div class="circle-container">
+          <div class="score">76</div>
+          <div class="total-score">of 100</div>
+      </div>
+        <div class="comment-container">
+          <div class="comment-header">Great</div>
+          <div class="comment">You scored higher than 65% of the people who have taken these tests</div>
+        </div>
+
+    </div>
+
+    <div class="summary-container">
+      <div class="summary-header">Summary</div>
+      <div class="reaction-container">
+        <img src="./assets/images/icon-reaction.svg" alt="reaction">
+        <p class="reaction-header">Reaction</p>
+        
+        <p class="reaction-score"><span class="user-score">80&nbsp</span> / 100</p>
+      </div>
+
+      <div class="memory-container">
+        <img src="./assets/images/icon-memory.svg" alt="memory">
+        <p class="memory-header">Memory</p>
+        <p class="reaction-score"><span class="user-score">92&nbsp</span> / 100</p>
+      </div>
+
+      <div class="verbal-container">
+        <img src="./assets/images/icon-verbal.svg" alt="verbal">
+        <p class="verbal-header">Verbal</p>
+        <p class="reaction-score"><span class="user-score">61&nbsp</span> / 100</p>
+      </div>
+
+      <div class="visual-container">
+        <img src="./assets/images/icon-visual.svg" alt="visual">
+        <p class="visual-header">Visual</p>
+        <p class="reaction-score"><span class="user-score">72&nbsp</span> / 100</p>
+      </div>
+
+      <button class="continue-button">Continue</button>
+    </div>
+  </div>
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Sean Quach</a>.
+  </div>
+</body>
+</html>
